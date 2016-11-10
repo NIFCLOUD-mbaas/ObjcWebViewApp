@@ -2,7 +2,7 @@
 //  main.m
 //  ObjcWebViewApp
 //
-//  Created by oono on 2016/11/10.
+//  Created by Nifty on 2016/11/10.
 //  Copyright © 2016年 Nifty. All rights reserved.
 //
 
