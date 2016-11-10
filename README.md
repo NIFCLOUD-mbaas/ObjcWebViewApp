@@ -1,5 +1,5 @@
-# 【iOS10対応 Swift】 mBaaSをWebサーバーとして使ってみよう！
-_2016/10/27作成_
+# 【iOS10対応 Objective-C】 mBaaSをWebサーバーとして使ってみよう！
+_2016/11/10作成_
 ![画像1](/readme-img/001.png)
 
 ## 概要
@@ -14,10 +14,10 @@ _2016/10/27作成_
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS X 10.12(Sierra)
-* Xcode ver. 8.0
-* Simulator ver. 10.0
- * iPhone7
+* Mac OS X 10.11.6(El Capitan)
+* Xcode ver. 8.1
+* iPhone5 iOS 9.3.5
+* iPhone6s iOS 10.0.1
 
 ※上記内容で動作確認をしています。
 
@@ -33,7 +33,7 @@ _2016/10/27作成_
 
 ### 2. GitHubからサンプルプロジェクトのダウンロード
 * 下記リンクをクリックしてプロジェクトをMacにダウンロードします
- * __[SwiftWebViewApp](https://github.com/natsumo/SwiftWebViewApp/archive/master.zip)__
+ * __[ObjcWebViewApp](https://github.com/NIFTYCloud-mbaas/ObjcWebViewApp/archive/master.zip)__
 
 ### 3. Webページの公開ファイルURLを作成する
 * 2.でダウンロードしたプロジェクトに「setting」フォルダがあります
@@ -74,12 +74,12 @@ _2016/10/27作成_
  * 「公開ファイルURL」は後ほど使用します
 
 ### 4. Xcodeでアプリを起動
-* ダウンロードしたフォルダを開き、「`SwiftWebViewApp.xcodeproj`」をダブルクリックしてXcode開きます
+* ダウンロードしたフォルダを開き、「`ObjcWebViewApp.xcodeproj`」をダブルクリックしてXcode開きます
 
 ![画像9](/readme-img/009.png)
 
 ### 5. 公開ファイルURLの設定
-* `WebViewController.swift`を編集します
+* `WebViewController.m`を編集します
 * 先程[ ニフティクラウドmobile backend ](http://mb.cloud.nifty.com/)のダッシュボード上で確認した`index.html`ファイルの「公開ファイルURL」を貼り付けます
 
 ![画像10](/readme-img/010.png)
@@ -107,38 +107,46 @@ https://mb.api.cloud.nifty.com/2013-09-01/applications/**APPLICATION_ID**/public
 今回は`index.html`に２つの画像（`mb.png`, `mb_information.png`）を表示する形式で簡易的に作成していますが、JavaScript（`js`ファイル）を作成しファイルストアに保存んすることで、`index.html`にスクリプトを埋め込むことも可能です。
 
 ### サンプルアプリについて
-WebViewの表示は、`WebViewController.swift`に記述しています
+WebViewの表示は、`WebViewController.m`に記述しています
 
-```swift
+```Objc
 //
-//  WebViewController.swift
-//  SwiftWebViewApp
+//  WebViewController.m
+//  ObjcWebViewApp
 //
-//  Created by Natsumo Ikeda on 2016/10/25.
-//  Copyright © 2016年 NIFTY Corporation. All rights reserved.
+//  Created by Nifty on 2016/11/10.
+//  Copyright © 2016年 Nifty. All rights reserved.
 //
-import UIKit
 
-class WebViewController: UIViewController {
-    // WebView
-    @IBOutlet weak var webView: UIWebView!
-    // index.htmlの公開URL
-    let url = "YOUR_HTML_PUBLIC_URL"
+#import "WebViewController.h"
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // スクロールを有効にする
-        webView.scrollView.contentOffset.y = 0
-        webView.scrollView.isScrollEnabled = true
+@interface WebViewController ()
+// WebView
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
-        // webViewに表示する
-        let nsurl = NSURL(string: url)
-        let request = NSURLRequest(url: nsurl as! URL)
-        self.webView.loadRequest(request as URLRequest)
-    }
+@end
+
+// index.htmlの公開URL
+NSString *const Url = @"YOUR_HTML_PUBLIC_URL";
+
+@implementation WebViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // スクロールを有効にする
+    CGPoint point = self.webView.scrollView.contentOffset;
+    point.y = 0;
+    self.webView.scrollView.contentOffset = point;
+    self.webView.scrollView.scrollEnabled = YES;
+
+    // webViewに表示する
+    NSURL *nsurl = [NSURL URLWithString:Url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:nsurl];
+    [self.webView loadRequest:request];
 }
 ```
 
 ## 参考
-* 同じ内容の【Objective-C】版もご用意しています
- * https://github.com/NIFTYCloud-mbaas/ObjcWebViewApp
+* 同じ内容の【Swift】版もご用意しています
+ * https://github.com/NIFTYCloud-mbaas/SwiftWebViewApp
