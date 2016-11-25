@@ -104,20 +104,12 @@ https://mb.api.cloud.nifty.com/2013-09-01/applications/**APPLICATION_ID**/public
 ```
 
 ### サンプルWebページについて
-今回は`index.html`に２つの画像（`mb.png`, `mb_information.png`）を表示する形式で簡易的に作成していますが、JavaScript（`js`ファイル）を作成しファイルストアに保存んすることで、`index.html`にスクリプトを埋め込むことも可能です。
+今回は`index.html`に２つの画像（`mb.png`, `mb_information.png`）を表示する形式で簡易的に作成していますが、JavaScript（`js`ファイル）を作成しファイルストアに保存することで、`index.html`にスクリプトを埋め込むことも可能です。
 
 ### サンプルアプリについて
 WebViewの表示は、`WebViewController.m`に記述しています
 
-```Objc
-//
-//  WebViewController.m
-//  ObjcWebViewApp
-//
-//  Created by Nifty on 2016/11/10.
-//  Copyright © 2016年 Nifty. All rights reserved.
-//
-
+```objc:WebViewController.m
 #import "WebViewController.h"
 
 @interface WebViewController ()
