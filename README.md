@@ -109,7 +109,7 @@ https://mb.api.cloud.nifty.com/2013-09-01/applications/**APPLICATION_ID**/public
 ### サンプルアプリについて
 WebViewの表示は、`WebViewController.m`に記述しています
 
-```objc:WebViewController.m
+```objc
 #import "WebViewController.h"
 
 @interface WebViewController ()
