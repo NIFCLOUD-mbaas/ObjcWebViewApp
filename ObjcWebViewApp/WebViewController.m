@@ -9,8 +9,6 @@
 #import "WebViewController.h"
 
 @interface WebViewController ()
-// WebView
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -22,16 +20,13 @@ NSString *const Url = @"YOUR_HTML_PUBLIC_URL";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // スクロールを有効にする
-    CGPoint point = self.webView.scrollView.contentOffset;
-    point.y = 0;
-    self.webView.scrollView.contentOffset = point;
-    self.webView.scrollView.scrollEnabled = YES;
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:[[self view] bounds]];
+    [self.view addSubview:webView];
     
     // webViewに表示する
     NSURL *nsurl = [NSURL URLWithString:Url];
     NSURLRequest *request = [NSURLRequest requestWithURL:nsurl];
-    [self.webView loadRequest:request];
+    [webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

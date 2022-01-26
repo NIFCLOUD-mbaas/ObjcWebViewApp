@@ -13,6 +13,7 @@
 		9D40D7B21DD44614001E624C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D40D7B11DD44614001E624C /* Assets.xcassets */; };
 		9D40D7B51DD44614001E624C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D40D7B31DD44614001E624C /* LaunchScreen.storyboard */; };
 		9D40D7BE1DD44B0B001E624C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D40D7BD1DD44B0B001E624C /* WebViewController.m */; };
+		DE8FBD80279AA0A300BF1778 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8FBD7E279A9C7300BF1778 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9D40D7B61DD44614001E624C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D40D7BC1DD44B0B001E624C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		9D40D7BD1DD44B0B001E624C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		DE8FBD7E279A9C7300BF1778 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8FBD80279AA0A300BF1778 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			children = (
 				9D40D7A41DD44614001E624C /* ObjcWebViewApp */,
 				9D40D7A31DD44614001E624C /* Products */,
+				DE8FBD7D279A9C7300BF1778 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +81,14 @@
 				9D40D7A61DD44614001E624C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE8FBD7D279A9C7300BF1778 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE8FBD7E279A9C7300BF1778 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +131,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -311,6 +324,7 @@
 				9D40D7BB1DD44614001E624C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
